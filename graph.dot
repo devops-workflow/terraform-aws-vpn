@@ -1,0 +1,19 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_vpn_connection.vpn" [label = "aws_vpn_connection.vpn", shape = "box"]
+		"[root] aws_vpn_connection_route.vpn_route" [label = "aws_vpn_connection_route.vpn_route", shape = "box"]
+		"[root] provider.aws" [label = "provider.aws", shape = "diamond"]
+		"[root] aws_vpn_connection.vpn" -> "[root] provider.aws"
+		"[root] aws_vpn_connection.vpn" -> "[root] var.customer_gateway_id"
+		"[root] aws_vpn_connection.vpn" -> "[root] var.environment"
+		"[root] aws_vpn_connection.vpn" -> "[root] var.name"
+		"[root] aws_vpn_connection.vpn" -> "[root] var.namespaced"
+		"[root] aws_vpn_connection.vpn" -> "[root] var.tags"
+		"[root] aws_vpn_connection.vpn" -> "[root] var.vpn_gateway_id"
+		"[root] aws_vpn_connection_route.vpn_route" -> "[root] aws_vpn_connection.vpn"
+		"[root] aws_vpn_connection_route.vpn_route" -> "[root] var.cidrs"
+	}
+}
+
